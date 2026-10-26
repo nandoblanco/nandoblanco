@@ -2,9 +2,9 @@
 
 I've been vibe coding since the 90s, its just faster now.
 
-I wrote my first code in notepad by disecting AngelFire free pages - I now have 20+ years of professional experience and still love what I do.
+I wrote my first code in notepad by dissecting AngelFire free pages - I now have 20+ years of professional experience and still love what I do.
 
-My primary focuse right now is custon CMS implementaions and automating anything I find too tedious to do manually.
+My primary focus right now is custom CMS implementations and automating anything I find too tedious to do manually.
 
 I also recently switched from VSCode Copilot to OpenCode CLI and it's been amazing... hence the plugins I'm releasing below.
 
