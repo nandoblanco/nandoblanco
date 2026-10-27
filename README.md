@@ -21,9 +21,9 @@ These plugins run on your machine with no external services. Their TUI popups re
 Install with one command:
 
 ```sh
-npx github:nandoblanco/opencode-local-memory install
-npx github:nandoblanco/opencode-local-backup install
-npx github:nandoblanco/opencode-local-search install
+npx opencode-local-memory install
+npx opencode-local-backup install
+npx opencode-local-search install
 ```
 
 Or add the TUI plugins to `~/.config/opencode/cli.json` (all three support `"dialogWidth": "80%"`):
