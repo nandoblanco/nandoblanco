@@ -21,20 +21,24 @@ These plugins run on your machine with no external services. Their TUI popups re
 Install with one command:
 
 ```sh
-npx opencode-local-memory install
-npx opencode-local-backup install
-npx opencode-local-search install
+npx @nandoblanco/opencode-local-memory install
+npx @nandoblanco/opencode-local-backup install
+npx @nandoblanco/opencode-local-search install
 ```
 
 Or add the TUI plugins to `~/.config/opencode/cli.json` (all three support `"dialogWidth": "80%"`):
 
 ```json
 {
-	"plugins": ["opencode-local-memory", "opencode-local-search", "opencode-local-backup"]
+	"plugins": [
+		"@nandoblanco/opencode-local-memory",
+		"@nandoblanco/opencode-local-search",
+		"@nandoblanco/opencode-local-backup"
+	]
 }
 ```
 
-For automatic per-turn memory recall, compaction checkpoints, pre-edit file snapshots, and agent tools (`memory_store`, `memory_search`, `memory_checkpoint`, `backup_list`, `backup_restore`), also add `"opencode-local-memory"` and `"opencode-local-backup"` to `~/.config/opencode/opencode.jsonc`.
+For automatic per-turn memory recall, compaction checkpoints, pre-edit file snapshots, and agent tools (`memory_store`, `memory_search`, `memory_checkpoint`, `backup_list`, `backup_restore`), also add `"@nandoblanco/opencode-local-memory"` and `"@nandoblanco/opencode-local-backup"` to `~/.config/opencode/opencode.jsonc`.
 
 ## Stack
 
