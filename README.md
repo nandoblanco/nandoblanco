@@ -47,13 +47,15 @@ Published on the [VS Code Marketplace][vscode-marketplace] and open-sourced on G
 | Extension                                                                     | What it does                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 | :---------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **[Localhost Opener][localhost-opener]** ([Marketplace][localhost-opener-mp]) | **Local web server URL mapper and live-reloading split preview** for MAMP, XAMPP, WampServer, Laragon, and Apache/Nginx. Maps files to `http://localhost/...` URLs via longest-prefix document root matching (`localhostOpener.addRoot` native folder picker), launches them in your browser with one click from the Activity Bar (`Ctrl+Alt+O`), and opens VS Code's Integrated Browser in a side split (`Ctrl+Alt+L`) that automatically hard-reloads past the HTTP cache whenever you save any mapped `.html`, `.css`, `.js`, or `.php` file. |
-| **[Wrike Tasks][wrike-tasks]** ([Marketplace][wrike-tasks-mp])                | **Wrike REST API v4 task manager** that brings your assigned queue directly into VS Code. Features a split Activity Bar (`Recent & Starred (20)` and `Clients` with ancestor folder resolution across `parentIds` and `superParentIds`), task and client starring, stem- and typo-tolerant fuzzy search, custom workflow status updates, a comment composer with `@mention` autocomplete, one-click `Copy in Markdown` export (metadata, description, and comment thread), and OAuth 2.0 (Google/SSO) + Permanent Token auth stored in the OS keychain. |
+| **[Wrike Tasks][wrike-tasks]** ([Marketplace][wrike-tasks-mp])                | **Wrike REST API v4 task manager** that brings your assigned queue directly into VS Code. Features a split Activity Bar (`Recent & Starred (20)` and `Clients` with ancestor folder resolution across `parentIds` and `superParentIds`), task and client starring, stem- and typo-tolerant fuzzy search, custom workflow status updates, a comment composer with `@mention` autocomplete, manual time logging and a live Status Bar stopwatch timer (`POST /tasks/{id}/timelogs`), one-click `Copy in Markdown` export (metadata, logged time, description, and comment thread), and OAuth 2.0 (Google/SSO) + Permanent Token auth stored in the OS keychain. |
+| **[Cascade CMS Sync][cascade-cms-sync]**                                      | **Two-way Cascade CMS sync** that pulls and pushes Velocity formats (`.vm`), templates (`.xml`), `/_files` text assets, and `_system-assets/` (content types, config sets, data definitions, shared fields) from the native VS Code File Explorer, with SHA-256 `sync-manifest.json` baseline tracking, three-way conflict detection, native `vscode.diff`, automatic pre-push `.snapshots/` backups, and a Sync Dashboard webview. Also serializes every site page and block as read-only `<path>.page` and `<path>.block` `<system-data-structure>` XML so you can inspect the data and field identifiers populating each page or block locally. |
 
 Install from the Marketplace or with one command:
 
 ```sh
 code --install-extension nandoBlanco.localhost-opener
 code --install-extension nandoBlanco.wrike-tasks
+code --install-extension nandoBlanco.cascade-cms-sync
 ```
 
 ## Stack
@@ -67,6 +69,7 @@ code --install-extension nandoBlanco.wrike-tasks
 [localhost-opener-mp]: https://marketplace.visualstudio.com/items?itemName=nandoBlanco.localhost-opener
 [wrike-tasks]: https://github.com/nandoblanco/vscode-wrike-tasks
 [wrike-tasks-mp]: https://marketplace.visualstudio.com/items?itemName=nandoBlanco.wrike-tasks
+[cascade-cms-sync]: https://github.com/nandoblanco/cascade-cms-sync
 
 [local-memory]: https://github.com/nandoblanco/opencode-local-memory
 [local-search]: https://github.com/nandoblanco/opencode-local-search
