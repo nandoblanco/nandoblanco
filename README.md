@@ -10,15 +10,16 @@ I also recently switched from VSCode Copilot to OpenCode CLI and it's been amazi
 
 ## OpenCode plugins
 
-All three plugins now support **OpenCode Desktop and the TUI**, with persistent Desktop side panels and terminal popups. Browsing, searching, and managing local data do not make LLM calls. Memory downloads its embedding model on first use, then runs inference locally on your CPU.
+These plugins support **OpenCode Desktop and the TUI**, with Desktop panels and terminal popups. Browsing, searching, and managing local data do not make LLM calls. Memory downloads its embedding model on first use, then runs inference locally on your CPU. Tokens also includes manual session handoff; preparing a handoff uses model tokens.
 
 | Plugin                                        | What it does                                                                                                                                                                                                                                                                                           |
 | :-------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **[opencode-local-memory][local-memory]**     | **Persistent memory with a Desktop and TUI Manager** (`/memory`). Stores facts and session checkpoints as local Markdown, automatically recalls relevant facts before each turn, and searches with local `all-MiniLM-L6-v2` CPU embeddings. Add, edit, delete, pin core memories, import sessions, and filter results from the Manager. Desktop: `Ctrl+Shift+M` opens or focuses the panel; `Ctrl+Alt+M` toggles it. |
 | **[opencode-local-search][local-search]**     | **Replaces OpenCode Desktop's built-in session search**, including its titlebar, vertical-tabs, Home, and Search sessions dialog entry points. Searches local conversation titles, messages, tool calls, shell output, and file paths with multi-term AND ranking, `"exact phrase"`, `/regex/i`, `~fuzzy`, typo fallback, and inline filters. Results include previews and navigation to matched messages. Also adds `/search` in the TUI while preserving `/sessions`. Desktop: `Ctrl+Shift+F` opens or focuses the panel; `Ctrl+Alt+F` toggles it. |
 | **[opencode-local-backup][local-backup]**     | **Automatic pre-edit file backups with a Desktop and TUI Manager** (`/backups`, `/restore`). Captures files through `execute.before` for `edit`, `write`, `patch`, `apply_patch`, and `multiedit`, resolves `<project-root>/.backups/`, and supports workspace discovery and configurable retention (`0` = never). Browse snapshots, filter results, preview unified diffs, and restore validated snapshots with an automatic pre-restore safety backup. Includes `backup_list` and `backup_restore` agent tools. Desktop: `Ctrl+Shift+B` opens or focuses the panel; `Ctrl+Alt+B` toggles it. |
+| **[opencode-local-tokens][local-tokens]**     | **Token auditing by project folder or tag, plus manual session handoff** (`/tokens`, `/handoff`). Find which projects consume the most tokens, sort the largest sessions, and inspect input, output, reasoning, and cache activity. Tag related work across folders and compare grouped totals in Desktop's `Per Tag` view. Model-context status helps identify when a conversation is getting full; handoff preserves structured working state and linked-history access for continuing in a fresh session. Preparation uses model tokens, and savings are not guaranteed. Desktop: `Ctrl+Shift+Y` opens Token Audit. |
 
-Install with one command:
+Install Memory, Backup, and Search with one command each:
 
 ```sh
 npx @nandoblanco/opencode-local-memory install
@@ -26,7 +27,7 @@ npx @nandoblanco/opencode-local-backup install
 npx @nandoblanco/opencode-local-search install
 ```
 
-Or add all three packages to `~/.config/opencode/opencode.jsonc`. A single entry per package loads its server, TUI, and Desktop support:
+Or add those three packages to `~/.config/opencode/opencode.jsonc`. A single entry per package loads its server, TUI, and Desktop support:
 
 ```json
 {
@@ -40,6 +41,14 @@ Or add all three packages to `~/.config/opencode/opencode.jsonc`. A single entry
 ```
 
 Desktop Managers stay open as side panels during a session and use a dialog when no session is active. The same configuration enables automatic memory recall, compaction checkpoints, pre-edit snapshots, and agent tools. No separate `cli.json` plugin entries are needed for this setup.
+
+Tokens is available from GitHub and has not been published to npm. Add it separately with OpenCode's plugin manager:
+
+```sh
+opencode plugin add github:nandoblanco/opencode-local-tokens
+```
+
+Token analytics and manual handoff are available with prompt-cache countdown alerts off by default. See the [Tokens README][local-tokens] for configuration and verification limits.
 
 ## VS Code extensions
 
@@ -72,3 +81,4 @@ code --install-extension nandoBlanco.wrike-tasks
 [local-memory]: https://github.com/nandoblanco/opencode-local-memory
 [local-search]: https://github.com/nandoblanco/opencode-local-search
 [local-backup]: https://github.com/nandoblanco/opencode-local-backup
+[local-tokens]: https://github.com/nandoblanco/opencode-local-tokens
